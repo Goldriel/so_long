@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarrakis <jarrakis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 21:54:18 by jarrakis          #+#    #+#             */
-/*   Updated: 2022/01/22 22:07:02 by jarrakis         ###   ########.fr       */
+/*   Created: 2022/01/22 21:54:14 by jarrakis          #+#    #+#             */
+/*   Updated: 2022/01/22 22:09:34 by jarrakis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	main(int argc, char **argv)
+# include "./minilibx_mms/mlx.h"
+# include "./get_next_line/get_next_line.h"
+# include <stdio.h>
+# include <stdlib.h>
+
+typedef struct s_mlx
 {
-	if (argc != 2)
-	{
-		printf("error argument!");
-	}
-}
+	void	*mlx;
+	void	*win;
+}	t_mlx;
+
+#endif
