@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarrakis <jarrakis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 21:54:14 by jarrakis          #+#    #+#             */
-/*   Updated: 2022/01/22 22:09:34 by jarrakis         ###   ########.fr       */
+/*   Created: 2022/01/25 21:12:13 by jarrakis          #+#    #+#             */
+/*   Updated: 2022/01/25 21:13:33 by jarrakis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "./minilibx_mms/mlx.h"
-# include "./get_next_line/get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_map
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	**map;
-}	t_map;
+	size_t	i;
+	size_t	j;
 
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-}	t_mlx;
-
-typedef struct s_data
-{
-	t_map	map;
-	t_mlx	mlx;
-}	t_data;
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-
-#endif
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while (haystack[i + j] && needle[j] && i + j < len && \
+			haystack[i + j] == needle[j])
+			j++;
+		if (!needle[j])
+			return ((char *)(haystack + i));
+		i++;
+	}
+	return (NULL);
+}
