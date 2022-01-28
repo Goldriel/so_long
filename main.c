@@ -14,7 +14,9 @@
 
 int	read_map(char *link_map, t_data *data)
 {
-	int	fd;
+	int		fd;
+	char	*read;
+	size_t	len;
 
 	if (!ft_strstr(link_map, ".ber"))
 		return (1);
@@ -22,8 +24,15 @@ int	read_map(char *link_map, t_data *data)
 	fd = open(link_map, O_RDONLY);
 	if (fd == -1)
 		printf("file not found\n");
-	if (fd != -1)
-		close(fd);
+	read = ft_strdup("");
+	while (read != NULL)
+	{
+		read = get_next_line(fd);
+		printf("%s\n", read);
+		data->map.size_y++;
+	}
+	printf("%d\n", data->map.size_y);
+	close(fd);
 	return (0);
 }
 
@@ -37,4 +46,7 @@ int	main(int argc, char **argv)
 	}
 	if (read_map(argv[1], &data))
 		printf("error map format\n");
+	data.mlx.mlx = mlx_init();
+	data.mlx.win = mlx_new_window(data.mlx.mlx, 500, 500, "so_long");
+	mlx_loop(data.mlx.mlx);
 }

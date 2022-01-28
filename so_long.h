@@ -23,6 +23,8 @@
 typedef struct s_map
 {
 	char	**map;
+	int		size_y;
+	int		size_x;
 }	t_map;
 
 typedef struct s_mlx

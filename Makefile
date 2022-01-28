@@ -14,7 +14,7 @@ NAME = so_long
 CC = gcc
 
 main:
-	$(CC) main.c so_long_utils.c -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) main.c so_long_utils.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 tmap:	main
 	./$(NAME) maps/test_map.ber
