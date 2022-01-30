@@ -39,7 +39,9 @@ typedef struct s_data
 	t_mlx	mlx;
 }	t_data;
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strstr(const char *haystack, const char *needle);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif
